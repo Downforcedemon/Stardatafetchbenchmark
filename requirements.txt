@@ -1,0 +1,4 @@
+lightKurve,
+concurrent.futures,
+pandas,
+matplotlib
