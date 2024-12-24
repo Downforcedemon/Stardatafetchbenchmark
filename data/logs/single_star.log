@@ -1,0 +1,34 @@
+2024-12-23 21:16:25,984 - INFO - Logging setup complete. Logs will be written to data/logs/single_star.log
+2024-12-23 21:16:25,985 - INFO - Starting single-star fetch test...
+2024-12-23 21:16:25,985 - INFO - Fetching data for star_id: TIC 84441541
+2024-12-23 21:16:26,166 - DEBUG - Started querying MAST for observations with the exact target_name='084441541'.
+2024-12-23 21:16:26,169 - DEBUG - Starting new HTTPS connection (1): mast.stsci.edu:443
+2024-12-23 21:16:26,736 - DEBUG - https://mast.stsci.edu:443 "POST /portal/Mashup/Mashup.asmx/columnsconfig HTTP/1.1" 200 None
+2024-12-23 21:16:26,874 - DEBUG - https://mast.stsci.edu:443 "POST /api/v0/invoke HTTP/1.1" 200 None
+2024-12-23 21:16:26,891 - DEBUG - No observations found. Now performing a cone search instead.
+2024-12-23 21:16:26,892 - DEBUG - Started querying MAST for observations within 0.0001 arcsec arcsec of objectname='TIC 84441541'.
+2024-12-23 21:16:26,990 - DEBUG - https://mast.stsci.edu:443 "POST /portal/Mashup/Mashup.asmx/columnsconfig HTTP/1.1" 200 None
+2024-12-23 21:16:26,993 - DEBUG - Starting new HTTPS connection (1): mast.stsci.edu:443
+2024-12-23 21:16:27,488 - DEBUG - https://mast.stsci.edu:443 "GET /api/v0/invoke?request=%7B%22service%22%3A%20%22Mast.Name.Lookup%22%2C%20%22params%22%3A%20%7B%22input%22%3A%20%22TIC%2084441541%22%2C%20%22format%22%3A%20%22json%22%7D%7D HTTP/1.1" 200 None
+2024-12-23 21:16:35,155 - DEBUG - https://mast.stsci.edu:443 "POST /api/v0/invoke HTTP/1.1" 200 None
+2024-12-23 21:16:35,266 - DEBUG - MAST found 16 observations. Now querying MAST for the corresponding data products.
+2024-12-23 21:16:35,360 - DEBUG - https://mast.stsci.edu:443 "POST /portal/Mashup/Mashup.asmx/columnsconfig HTTP/1.1" 200 None
+2024-12-23 21:16:35,769 - DEBUG - https://mast.stsci.edu:443 "POST /api/v0/invoke HTTP/1.1" 200 None
+2024-12-23 21:16:35,872 - DEBUG - MAST found 15 matching data products.
+2024-12-23 21:16:35,955 - DEBUG - Started downloading mast:TESS/product/tess2021258175143-s0043-0000000084441541-0214-s_lc.fits.
+2024-12-23 21:16:36,148 - DEBUG - https://mast.stsci.edu:443 "HEAD /api/v0.1/Download/file?uri=mast:TESS/product/tess2021258175143-s0043-0000000084441541-0214-s_lc.fits HTTP/1.1" 200 0
+2024-12-23 21:16:36,149 - DEBUG - Starting new HTTPS connection (2): mast.stsci.edu:443
+2024-12-23 21:16:36,712 - DEBUG - https://mast.stsci.edu:443 "GET /api/v0.1/Download/file?uri=mast:TESS/product/tess2021258175143-s0043-0000000084441541-0214-s_lc.fits HTTP/1.1" 200 1811520
+2024-12-23 21:16:40,136 - DEBUG - Finished downloading.
+2024-12-23 21:16:40,137 - DEBUG - Opening /home/sm/.lightkurve/cache/mastDownload/TESS/tess2021258175143-s0043-0000000084441541-0214-s/tess2021258175143-s0043-0000000084441541-0214-s_lc.fits.
+2024-12-23 21:16:40,150 - DEBUG - Detected filetype: 'TessLightCurve'.
+2024-12-23 21:16:40,322 - INFO - 0% (33/17050) of the cadences will be ignored due to the quality mask (quality_bitmask=175).
+2024-12-23 21:16:40,462 - WARNING - The unit 'electron / s' could not be saved in native FITS format and hence will be lost to non-astropy fits readers. Within astropy, the unit can roundtrip using QTable, though one has to enable the unit before reading.
+2024-12-23 21:16:40,497 - WARNING - Meta-data keyword BITPIX will be ignored since it conflicts with a FITS reserved keyword
+2024-12-23 21:16:40,519 - WARNING - Meta-data keyword NAXIS will be ignored since it conflicts with a FITS reserved keyword
+2024-12-23 21:16:40,548 - WARNING - VerifyWarning: Keyword name 'FLUX_ORIGIN' is greater than 8 characters or contains characters not allowed by the FITS standard; a HIERARCH card will be created.
+2024-12-23 21:16:40,572 - WARNING - VerifyWarning: Keyword name 'QUALITY_BITMASK' is greater than 8 characters or contains characters not allowed by the FITS standard; a HIERARCH card will be created.
+2024-12-23 21:16:40,593 - WARNING - VerifyWarning: Keyword name 'QUALITY_MASK' is greater than 8 characters or contains characters not allowed by the FITS standard; a HIERARCH card will be created.
+2024-12-23 21:16:40,625 - WARNING - Attribute `QUALITY_MASK` of type <class 'numpy.ndarray'> cannot be added to FITS Header - skipping
+2024-12-23 21:16:40,719 - INFO - Successfully fetched data for TIC 84441541 in 14.73 seconds
+2024-12-23 21:16:40,719 - INFO - Success: Fetched data for TIC 84441541 in 14.73 seconds
