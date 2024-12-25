@@ -1,0 +1,137 @@
+StarDataFetchBenchmark - Testing Report
+
+Introduction
+
+The purpose of the StarDataFetchBenchmark project was to evaluate the feasibility and performance of fetching TESS light curve data using both Python and C++. The objective was to benchmark single-star data fetching operations, explore dynamic URL construction, and decide on the most practical approach for the Download Module in the Exoplanet_Transit_Detector project.
+
+Key Components
+
+Python Implementation
+
+Tools Used:
+
+Libraries: Lightkurve, Astroquery, logging.
+
+Python's robust ecosystem allowed seamless querying and fetching of TESS light curve data.
+
+Steps Implemented:
+
+Read star IDs from star_ids.txt.
+
+Queried the MAST database dynamically using Lightkurve.
+
+Constructed and validated the URL for downloading FITS files.
+
+Logged metadata and timing for benchmarking purposes.
+
+Performance:
+
+Successfully fetched and downloaded FITS files for stars with correct metadata.
+
+Timing: Approximately 14.73 seconds for a single-star fetch (including metadata retrieval and file download).
+
+Advantages:
+
+Mature, domain-specific libraries that abstract complex API and FITS handling.
+
+Rapid prototyping and debugging.
+
+High-level functionality for metadata querying and analysis.
+
+C++ Implementation
+
+Tools Used:
+
+Libraries: libcurl (HTTP requests), CFITSIO (FITS handling).
+
+Standard C++17 features for file handling, logging, and directory management.
+
+Steps Implemented:
+
+Read star IDs from star_ids.txt.
+
+Constructed API URLs dynamically.
+
+Queried MAST for metadata.
+
+Attempted to fetch and download FITS files.
+
+Challenges:
+
+Lack of domain-specific libraries for astronomy in C++.
+
+Complex URL construction and metadata handling required significant manual effort.
+
+Debugging HTTP requests and parsing responses was tedious and error-prone.
+
+Performance:
+
+The process was theoretically functional but impractical due to the time and effort required for development.
+
+CURL successfully fetched metadata but required manual parsing for observation details.
+
+Comparison
+
+Aspect
+
+Python Implementation
+
+C++ Implementation
+
+Ease of Development
+
+Highly efficient due to libraries
+
+Complex and time-consuming
+
+Metadata Handling
+
+Automated via Lightkurve
+
+Manual parsing required
+
+Performance
+
+14.73 seconds for single fetch
+
+Potentially slower (overhead)
+
+Extensibility
+
+High with Python libraries
+
+Low without custom library work
+
+Suitability
+
+Excellent for Download Module
+
+Impractical for this purpose
+
+Conclusion
+
+The benchmark tests conclusively demonstrated that Python is the superior choice for implementing the Download Module due to its:
+
+Mature libraries like Lightkurve and Astroquery.
+
+Automated handling of metadata, FITS files, and MAST API interactions.
+
+Scalability and ease of development.
+
+Implementing a similar module in C++ would require building an equivalent library, which is impractical given the time and resources needed.
+
+Final Decision
+
+The Download Module will be exclusively developed in Python for the Exoplanet_Transit_Detector project.
+
+C++ may still be considered for computationally intensive tasks (e.g., transit analysis or signal processing).
+
+Next Steps
+
+Finalize the Python-based Download Module.
+
+Transition to implementing the Exoplanet_Transit_Detector project based on the tested workflow.
+
+Document and optimize the integration of Python-based modules for scalability and reliability.
+
+
